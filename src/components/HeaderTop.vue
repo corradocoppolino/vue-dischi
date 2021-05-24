@@ -2,7 +2,7 @@
   
     <header>
 
-        
+        <img src="../assets/img/ciao.png" alt="">
 
     </header>
 
@@ -18,8 +18,14 @@ export default {
 
 header{
     height: 80px;
-    width: 100%;
+    
     background-color: #2E3A46;
+    img{
+        height: 70px;
+        width: 80px;
+        margin-top: 5px;
+        margin-left: 30px;
+    }
 }
 
 </style>

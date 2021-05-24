@@ -2,10 +2,15 @@
   
     <main>
 
-        <main-card 
-        v-for="(element,index) in cards"
-        :key="index"
-        />
+        <div class="row clearfix">
+
+          <main-card 
+          v-for="(element,index) in cards"
+          :key="index"
+          :carta="element"
+          />
+
+        </div>
 
     </main>
 
@@ -17,19 +22,25 @@ import MainCard from './MainCard.vue'
 import axios from 'axios';
 
 export default {
+    name: 'MainContent',
+    data(){
+      return{
+        cards: []
+      }
+    },
     components: { 
       MainCard,
-      cards: [] 
     },
     created(){
     axios.get("https://flynn.boolean.careers/exercises/api/array/music")
       .then(res => {
         console.log(res.data);
-        this.cards = res.data;
+        this.cards = res.data.response;
       })
       .catch(err => {
         console.log(err);
-      })
+    })
+      
   }
 
 
@@ -39,8 +50,11 @@ export default {
 <style lang="scss" scoped>
 
 main{
-    height: 500px;
     background-color: #1E2D3B;
+    .row{
+      width: 80%;
+      margin: auto;
+    }
 }
 
 </style>
