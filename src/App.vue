@@ -20,6 +20,12 @@ export default {
   components: {
     HeaderTop,
     MainContent  
+  },
+
+  data(){
+    return{
+      loading: true
+    }
   }
 
 }
